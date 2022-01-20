@@ -29,5 +29,5 @@ List<string> theNames = names.Where(n => n.StartsWith("The")).ToList();
 Console.WriteLine("'The' Place Names");
 foreach (string name in theNames)
 {
-    Console.WriteLine(name);
+    Console.WriteLine(name); 
 }
