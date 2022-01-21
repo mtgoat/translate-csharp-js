@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+//Javascrip Array method or function == C# List method or function
 using System;
 
 namespace Insulter
@@ -20,25 +21,23 @@ namespace Insulter
             };
 
 
-            int [] indexes = {} ;
+            List <int> indexes = new List<int> (){} ;
+//Javascrit .Length = C# .Count
+            while (indexes.Count < 3){
+             int Candidate = new Random().Next (0, insults.Count-1 );
+     
+               if (!indexes.Any( i => i == Candidate)) {
+                 indexes.Add(Candidate);
+                };
+            };
 
-    //         while (indexes.Length < 3){
-    //            if (!indexes.Include(candidate)) {
-    //   indexes.Push(candidate);
-    // }
-    //         };
-
-            for (int i=0; i<indexes.Length; i++){
+            for (int i=0; i<indexes.Count; i++){
                 int index = indexes[i];
-                Console.WriteLine(insults[i]);
-                Console.WriteLine(indexes[i]);
+                Console.WriteLine(insults[index]);
+            };
+
             }
 
-            Random Candidate = new Random();
-            int CandidateInt = Candidate.Next();}
-
-
-        //     public int Length { get; }
          }
 }
 
