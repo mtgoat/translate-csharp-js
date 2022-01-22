@@ -12,6 +12,7 @@ function main() {
     } else {
       tables["Table 1"].push(guest);
     }
+    console.log(tables["Table 1"])
   }
   
   for (const tableName of Object.keys(tables)) {
