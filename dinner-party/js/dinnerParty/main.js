@@ -12,6 +12,7 @@ function main() {
     } else {
       tables["Table 1"].push(guest);
     }
+    console.log("table1Occupations", table1Occupations)
     console.log(tables["Table 1"])
   }
   

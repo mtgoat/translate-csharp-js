@@ -1,4 +1,6 @@
-﻿using System;
+﻿//alt shift f
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,30 +8,36 @@ namespace DinnerParty
 {
     class Program
     {
+        public class Guest
+        {
+            public string Name { get; set; }
+            public string Occupation { get; set; }
+            public string Bio { get; set; }
+        }
+
+        public class GuestTable
+        {
+            // public string TableName { get; set; }
+            public List<Guest> TableGuests { get; set; } = new List<Guest> ();
+            //this above is making an emptry array so that we can avoid getting null exeption error 
+            //TableGuests = []
+        }
         static void Main(string[] args)
         {
 
+            List<Guest> guests = GetAllGuests();
 
+            //    GuestTable MakeTable(guests);
 
-
-            // GuestTable MakeTableList(List<Guest> allGuests)
+            // foreach (Guest myGuest in guests)
             // {
-            //     GuestTable Table1 = new GuestTable();
-
-            //     return Table1;
+            //     Console.WriteLine($"{myGuest.Name}");
             // }
 
-           List <Guest> guests = GetAllGuests();
-           GuestTable Table1 = MakeTable(guests);
-           foreach (Guest myGuest in guests)
-           {
-               Console.WriteLine($"{myGuest.Name}");
-           }
-            
             // A function to make and return list of guests
             List<Guest> GetAllGuests()
             {
-                    // Make a list of Enemy objects
+                // Make a list of Enemy objects
                 List<Guest> guests = new List<Guest> {
                new Guest {
                 Name = "Marilyn Monroe",
@@ -72,37 +80,81 @@ namespace DinnerParty
                 Bio = "(1917 - 1984) Prime Minister of India 1966 - 1977",
                 }
             };
-               return guests;
+                return guests;
             }
+
+            GuestTable Table1 = new GuestTable();
+            GuestTable Table2 = new GuestTable();
+
+            // try{
+            foreach (var guest in guests)
+            {
+
+                List<string> table1Occupations = Table1.TableGuests.Select(g => g.Occupation).ToList();
+
+                if (table1Occupations.Contains(guest.Occupation))
+                {
+                    Table2.TableGuests.Add(guest);
+                }
+                else
+                {
+                    
+                    Table1.TableGuests.Add(guest);
+                }
+
+            // }}catch{
+                
+            }
+
+
+            Console.WriteLine("Table 1");
+            foreach (Guest myGuest in Table1.TableGuests)
+            {
+                Console.WriteLine($"{myGuest.Name}");
+            }
+
+            Console.WriteLine("Table 2");
+            foreach (Guest myGuest in Table2.TableGuests)
+            {
+                Console.WriteLine($"{myGuest.Name}");
+            }
+            // Console.WriteLine($"table 2 {Table2}");
+            // GuestTable MakeTable(List<Guest> guests)
+            //{
+            // GuestTable Table1 = new GuestTable();
+            // Table1.TableName = "Table 1";
+
+            // GuestTable Table2 = new GuestTable();
+            // Table2.TableName = "Table 2";
+
+            // foreach (var guest in guests)
+            // {
+
+            //     List<string> table1Occupations = guests.Select(g => g.Occupation).ToList();
+
+            //     if (!table1Occupations.Contains(guest.Occupation))
+            //     {
+            //         Table2.Guests.Add(guest);
+            //     }
+            //     else
+            //     {
+            //         Table1.Guests.Add(guest);
+            //     }
+            // }
+            // return Table1;
+            // Console.WriteLine($"{Table1},{Table2}");
+
+
+
+
+
+
+
+
         }
-        public class Guest
-        {
-            public string Name { get; set; }
-            public string Occupation { get; set; }
-            public string Bio { get; set; }
-        }
-
-
-        public class GuestTable
-        {
-            public string TableName { get; set; }
-            public List<Guest> Guests { get; set; }
-        }
-        
-        
-        GuestTable MakeTable (List<Guest> guests)
-        {
-            GuestTable Table1 = new GuestTable ();
-            Table1.TableName = "Table 1";
-
-            // Table1.Guests = guests.Where (g => g.Occupation);
-            // if (!Table1.Guests.Any(i = i.Occupation))
-
-                 
-
-        return Table1;
     }
 }
+
 
 
 
