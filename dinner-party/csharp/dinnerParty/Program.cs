@@ -106,7 +106,7 @@ namespace DinnerParty
                 
             }
 
-
+//
             Console.WriteLine("Table 1");
             foreach (Guest myGuest in Table1.TableGuests)
             {
