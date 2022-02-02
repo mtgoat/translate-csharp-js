@@ -18,7 +18,7 @@ namespace wordFrequency
             It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.
             - Carl Sagan";
 
-            string NoPuncs = Regex.Replace(allTexts, "/[^a-zA-Z ]/g", "");
+            string NoPuncs = Regex.Replace(allTexts, "[^a-zA-Z ]", "");
             //string[] = array of strings
             string[] words = NoPuncs.Split(" ");
 
@@ -26,7 +26,7 @@ namespace wordFrequency
 
             foreach (string word in words)
             {
-                string word2 = Regex.Replace(word, "[^A-Za-z]", "");
+                // string word2 = Regex.Replace(word, "[^A-Za-z]", "");
                 if (word.Trim() == "")
                 {
                     continue;
@@ -55,4 +55,3 @@ namespace wordFrequency
         }
     }
 }
-//
